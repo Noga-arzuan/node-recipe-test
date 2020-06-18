@@ -1,0 +1,75 @@
+<%- include("partials/header") -%>
+
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+  <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/search">Search</a>
+
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+    <div class="table-wrapper">
+       <div class="container-fluid">
+          <h1 class="display-1 text-center">Eat Your Own Food</h1> 
+           <blockquote class="blockquote text-center">
+  <p class="mb-0">You Are What You Are Eating.</p>
+  <footer class="blockquote-footer"> <cite title="Source Title">Be Your Best</cite></footer>
+</blockquote>
+
+</div> 
+         <% if (recipe_.length > 0) {%>
+            <table class="table table-hovered">
+              
+                <thead class="p-3 mb-2 bg-secondary text-white">
+                    <tr>
+                    
+                  <th scope="col">id</th>    
+                    <th scope="col">Carb</th>
+                    <th scope="col">Vegtebale</th>
+                    <th scope="col">Protein</th>
+                    <th scope="col">Recipe Name </th>
+                    <th scope="col">Image</th>
+                  
+                    </tr>
+                </thead>
+                <tbody>
+                    <% recipe_.forEach((recipe, index) => { %>
+                      <tr>
+                   
+                            
+                            <th scope="row"><%=recipe.id %></th>
+                         
+                            <td><%= recipe.carb %></td>
+                            <td><%= recipe.vegtebale %></td>
+                            <td><%= recipe.protein %></td>
+                            <td><%= recipe.name %></td>
+                            <td><img src="/assets/img/<%= recipe.image %>" class="rounded float-left recipe-img" alt=""></td>
+
+                            <td>
+                              
+                           
+                                   <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">Edit</a>
+                                     <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
+                              
+
+
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No recipe_ found. Go <a href="/add" >here</a> to add recipe_.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>  

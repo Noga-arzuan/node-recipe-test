@@ -1,0 +1,43 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+     <div class="container-fluid">
+          <h3 class="display-1 text-center">Add Your Own Recipe </h3> 
+           <blockquote class="blockquote text-center">
+  <p class="mb-0">You Are What You Are Eating.</p>
+  <footer class="blockquote-footer">It Is Your Food<cite           title="Source Title">----------------------Be Your Self Be Your Best</cite></footer>
+</blockquote>
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-recipe-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control table-success" name="name" id="name" placeholder="name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="protein" id="protein" placeholder="protein" required>
+                </div>
+                 <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="carb" id="carb" placeholder="carb" required>
+                </div>
+                
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="vegtebale" id="vegtebale" placeholder="vegtebale" required>
+                </div>
+              
+            </div>
+            <div class="form-row">
+               
+                  
+                </div>
+                <div class="col-md-12">
+                    <label for="recipe-img"><b>Recipe Image</b></label><br>
+                    <input type="file" name="image" id="recipe-img" class="" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Add Recipe</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
